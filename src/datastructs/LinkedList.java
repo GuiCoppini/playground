@@ -26,6 +26,7 @@ public class LinkedList<T> implements DataStructure {
 
     @Override
     public boolean delete(Object obj) {
+        // FIXME Always deleting the ffirst one, but first, correct the DELETE checker
         if(!exists(obj)) return false;
         Node actual = first;
         Node before = null;
@@ -41,6 +42,7 @@ public class LinkedList<T> implements DataStructure {
                 size--;
                 return true;
             }
+//            before = actual; TEST THIS
             actual = actual.next;
         }
 
