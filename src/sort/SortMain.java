@@ -1,10 +1,9 @@
-import sort.BubbleSort;
-import sort.Sort;
+package sort;
 
 import java.util.Arrays;
 import java.util.function.Function;
 
-public class MainJava {
+public class SortMain {
     public static void main(String[] args) {
         Sort sort = new BubbleSort();
 
