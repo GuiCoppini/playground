@@ -23,16 +23,33 @@ public class DataStructuresMain {
         }
 
         test(structure.size() == sizeShouldBe, "Size after inserts");
-        test(structure.exists(53) == true, "Should exist 53");
-        test(structure.exists(9) == false, "Should NOT exist 9");
+        test(structure.exists(53), "Should exist 53");
+        test(!structure.exists(9), "Should NOT exist 9");
 
-        for (int num : numbers) {
+        // shuffled by hand to avoid the return of the shuffle being exactly the same array, giving a false positive
+        int[] shuffled = {53, 2, 5, 7, 3, 1, 31};
+        for (int num : shuffled) {
             // size on delete
             structure.delete(num);
             sizeShouldBe--;
             test(structure.size() == sizeShouldBe, "Size Delete on num " + num);
         }
     }
+
+//    private static int[] shuffle(int[] a) {
+//        int[] resultAsArray = new int[a.length];
+//
+//        List<Integer> result = Arrays.stream(a.clone())
+//                .boxed()
+//                .collect(Collectors.toList());
+//        Collections.shuffle(result);
+//
+//        for (int i = 0; i < result.size(); i++) {
+//            resultAsArray[i] = result.get(i);
+//        }
+//
+//        return resultAsArray;
+//    }
 
     static boolean test(boolean condition, String name) {
         if(condition) {
